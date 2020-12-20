@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../partials/header-top.ejs') %>
+
+        <!-- partial -->
+        <div class="main-panel">
+
+            <%- include('../partials/header.ejs') %>
+
+            <div class="content-wrapper container-wrapper-width">
+
+                <%- include('../partials/sidebar.ejs') %>
+
+                <div class="content-area">
+
+                    <div class="content-area-inner">
+
+                        <div class="row home-block-row">
+<!--                            <div class="col-md-2"></div>-->
+                            <div class="col-md-8" style="justify-content: center;align-items: center;">
+                                <div class="card home-block" style="background: #1c1e2f; color: white; margin-right: 0;">
+                                    <div class="card-body">
+                                        <h1 class="home-block-title">Cyber insurance for professionals and small business owners</h1>
+                                        <h4 class="home-block-content">Protect your online assets against rising treats in few simple clicks</h4>
+                                        <form action="/free-risk-assessment" method="get">
+                                            <div class="form-group" style="text-align: center; padding-top: 5%">
+                                                <label style="font-size: 1.2rem; line-height: 2rem;">TAKE YOUR FREE ASSESSMENT</label>
+                                                <input class="form-control" placeholder="Enter your domain" name="risk_domain" style="height: 2.5rem; font-size: 1.1rem;">
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-warning btn-lg"><%= i18n.__('Submit Domain') %></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="justify-content: left; padding-left: 5%;">
+                                <div class="home-image">
+                                    <img src="/backend/images/home-01.gif">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div style="padding: 5%;">
+                                    <h1 class="home-block-title">Overview</h1>
+                                    <h4 class="home-block-content">Crafted by AI to provide a customized cyber insurance for each industrial sector needs. Our insurance
+                                        product covers for the investigation (source of cyber incidents), customers’ notifications, business interruption, systems or data
+                                        recovery/restoration,etc. We analyse your cyber risk and blockchain power surveillance system monitors your cyber risk 24/7. You
+                                        do not need to worry about the complexity of the cyber insurance as it is fully taken care by our algorithm.</h4>
+                                </div>
+                                <div style="padding: 5%;">
+                                    <h1 class="home-block-title">Customer Segments</h1>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h2 class="home-block-title">Law office</h2>
+                                            <h4 class="home-block-content">Most law firms typically do not comprehend the scope of the cyber exposures they face and
+                                                possess a very limited understanding of the insurance protections available. Selecting a policy that protects your
+                                                business is not an option basically it is essential part of running a successful law firm in the twenty-first
+                                                century.</h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h2 class="home-block-title">Medical office</h2>
+                                            <h4 class="home-block-content">Cyber insurance covers losses and damages resulting from patient data being stolen, exposed,
+                                                held for ransom, or improperly shared. It covers deliberate actions, such as hacking or ransomware, as well as accidents
+                                                such as a coding error that accidentally exposes patient data.</h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h2 class="home-block-title">Accounting firms</h2>
+                                            <h4 class="home-block-content">Accounting firms are especially vulnerable due to the volume of records they contain, often
+                                                containing sensitive personal and financial information. Insurance companies are increasingly offering solutions for CPA
+                                                firms that need coverage against cyber attacks</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row home-block-row">
+                            <div class="col-md-5">
+                                <div class="home-image">
+                                    <img src="/backend/images/home-02.png">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="home-block">
+                                    <h1 class="home-block-title">Interactive Insurance Underwriting</h1>
+                                    <h4 class="home-block-content">Powered by deep learning and transfer learning, the chat enabled app is able to communicate with the
+                                        client smoothly and collect the information needed for the cyber insurance underwriting in a minute.</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row home-block-row">
+                            <div class="col-md-7">
+                                <div class="home-block">
+                                    <h1 class="home-block-title">Intuitive Cyber Risk Report</h1>
+                                    <h4 class="home-block-content">The AI enabled engine will recommend the necessary actions to reduce the cyber risk and the insurance
+                                        premium. The customer can ignore the recommendations and move to the next step to purchase the cyber insurance with the current
+                                        risk</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="home-image">
+                                    <img src="/backend/images/home-03.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row home-block-row">
+                            <div class="col-md-5">
+                                <div class="home-image">
+                                    <img src="/backend/images/home-04.png">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="home-block">
+                                    <h1 class="home-block-title">Customization for Any Business</h1>
+                                    <h4 class="home-block-content">The system offers the insurance plans from several companies to customize the cyber insurance even
+                                        further</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<%- include('../partials/foot.ejs') %>
+
+</body>
+</html>

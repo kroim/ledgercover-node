@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../partials/header-top.ejs') %>
+
+        <!-- partial -->
+        <div class="main-panel">
+
+            <%- include('../partials/header.ejs') %>
+
+            <div class="content-wrapper container-wrapper-width">
+
+                <%- include('../partials/sidebar.ejs') %>
+
+                <div class="content-area">
+                    <div class="content-area-inner">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="risk-api-form" style="text-align: center; padding: 5%">
+                                    <div class="row">
+                                        <div class="col-md-6" style="padding: 5%">
+                                            <div class="form-group">
+                                                <label>Your Name</label>
+                                                <input type="text" class="form-control" id="risk_name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Your Email</label>
+                                                <input type="email" class="form-control" id="risk_email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Available Domain</label>
+                                                <input type="text" class="form-control" id="risk_domain" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" style="padding: 5%">
+                                            <div class="form-group">
+                                                <label>Your Industry</label>
+                                                <input type="text" class="form-control" id="risk_industry" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Number of Employees</label>
+                                                <input type="text" class="form-control" id="risk_employees" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                <input type="text" class="form-control" id="risk_phone" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <button class="btn btn-warning btn-lg">Detect Risk Assessment</button>
+                                    </div>
+                                </form>
+                                <div class="dot-opacity-loader" style="display: none;">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="home-block" id="risk_block">
+                                    <h3 class="home-block-title">Risk Assessment Result</h3>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="ledger_report_form" style="margin-top: 3%; display: none">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="risk-block-title">Subject: <span>LETTER OF INTENT</span></h5>
+                                            <p class="risk-block-content">From: <span id="risk-mail-name"></span></p>
+                                            <p class="risk-block-content">Website: <span id="risk-mail-domain"></span></p>
+                                            <p class="risk-block-content">Dear LedgerCover Team,</p>
+                                            <p class="risk-block-content">I would like to protect my assets and be an early customer to the Cyber Insurance product at a
+                                                preferential rate when
+                                                the product is available Fall 2020.</p>
+                                            <p class="risk-block-content">Thank you</p>
+                                            <p class="risk-block-content">Please keep me informed by email</p>
+                                            <p class="risk-block-content">Date: <span><%= new Date().toISOString().substr(0, 10) %></span></p>
+                                            <p class="risk-block-content">Signature: <span id="risk-mail-signature"></span></p>
+                                            <div style="text-align: center;">
+                                                <form id="risk-report-form" action="" method="post">
+                                                    <input type="hidden" name="report_name" value="">
+                                                    <input type="hidden" name="report_email" value="">
+                                                    <input type="hidden" name="report_domain" value="">
+                                                    <input type="hidden" name="report_industry" value="">
+                                                    <input type="hidden" name="report_employees" value="">
+                                                    <input type="hidden" name="report_phone" value="">
+                                                    <button class="btn btn-danger" style="padding-left: 100px; padding-right: 100px;">SEND</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<%- include('../partials/foot.ejs') %>
+<script>
+    $(function () {
+        let urlString = document.URL;
+        let url = new URL(urlString);
+        let risk_domain = url.searchParams.get('risk_domain');
+        $('#risk_domain').val(risk_domain);
+    })
+    $('#risk-api-form').on('submit', function (e) {
+        e.preventDefault();
+        let riskName = $('#risk_name').val();
+        let riskEmail = $('#risk_email').val();
+        let riskDomain = $('#risk_domain').val();
+        let riskIndustry = $('#risk_industry').val();
+        let riskEmployees = $('#risk_employees').val();
+        let riskPhone = $('#risk_phone').val();
+        $('#risk-api-form button').prop('disabled', true);
+        $('.dot-opacity-loader').css('display', 'block');
+        $.ajax({
+            url: '/free-risk-assessment',
+            method: 'post',
+            data: {
+                method_type: 'risk-api',
+                riskName: riskName,
+                riskEmail: riskEmail,
+                riskDomain: riskDomain,
+                riskIndustry: riskIndustry,
+                riskEmployees: riskEmployees,
+                riskPhone: riskPhone,
+            },
+            success: function (res) {
+                if (res.status === 'success') {
+                    // customAlert(res.message, true);
+                    $('#risk_block').css('display', 'block');
+                    let riskData = res.data;
+                    let reputationScore = "Very Risk";
+                    if (parseFloat(riskData.reputationScore) > 90) reputationScore = "Very Secure";
+                    else if (parseFloat(riskData.reputationScore) > 70) reputationScore = "Secure";
+                    else if (parseFloat(riskData.reputationScore) > 50) reputationScore = "Risk";
+                    $('#risk_block').append('<h4 class="risk-block-title">Warning detected score: ' + riskData.reputationScore + '</h4>');
+                    for (let i = 0; i < riskData.testResults.length; i++) {
+                        $('#risk_block').append('<h5 class="risk-block-title">' + riskData.testResults[i].test + '</h5>');
+                        for (let j = 0; j < riskData.testResults[i].warnings.length; j++) {
+                            $('#risk_block').append('<p class="risk-block-content">' + riskData.testResults[i].warnings[j] + '</p>');
+                        }
+                    }
+                    $('#ledger_report_form').css('display', 'block');
+                    $('#risk-mail-name').text(riskName);
+                    $('#risk-mail-domain').text(riskDomain);
+                    $('#risk-mail-signature').text(riskName);
+                    $('input[name="report_name"]').val(riskName);
+                    $('input[name="report_email"]').val(riskEmail);
+                    $('input[name="report_domain"]').val(riskDomain);
+                    $('input[name="report_industry"]').val(riskIndustry);
+                    $('input[name="report_employees"]').val(riskEmployees);
+                    $('input[name="report_phone"]').val(riskPhone);
+                } else customAlert(res.message);
+                $('#risk-api-form button').prop('disabled', false);
+                $('.dot-opacity-loader').css('display', 'none');
+            }
+        })
+    });
+    $('#risk-report-form').on('submit', function (e) {
+        e.preventDefault();
+        $('#risk-report-form button').prop('disabled', true);
+        $.ajax({
+            url: "/free-risk-assessment",
+            method: 'post',
+            data: {
+                method_type: 'risk-mailing',
+                report_name: $('input[name="report_name"]').val(),
+                report_email: $('input[name="report_email"]').val(),
+                report_domain: $('input[name="report_domain"]').val(),
+                report_industry: $('input[name="report_industry"]').val(),
+                report_employees: $('input[name="report_employees"]').val(),
+                report_phone: $('input[name="report_phone"]').val(),
+            },
+            success: function (res) {
+                if (res.status === 'success') customAlert(res.message, true);
+                else customAlert(res.message);
+                $('#risk-report-form button').prop('disabled', false);
+            }
+        })
+    })
+</script>
+</body>
+</html>

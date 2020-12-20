@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/urbanui/custom/css/contact-us.css">
+<body>
+<div class="container-scroller">
+    <%- include('../partials/header') %>
+    <%- include('../partials/sidebar') %>
+
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="contact-details">
+                    <div>
+                        <form id="contact_form">
+                            <h3 style="color: red; padding-bottom: 20px;">CONTACT US</h3>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter your name" id="contact_name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter a valid email address" id="contact_email">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter your address" id="contact_address">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Enter your message" id="contact_message" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger btn-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('../partials/footer') %>
+        </div>
+    </div>
+
+</div>
+<!-- container-scroller -->
+
+<%- include('../partials/foot') %>
+<!--<script src="/urbanui/custom/js/free-risk-assessment.js"></script>-->
+<script>
+    $('#contact_form').on('submit', function (e) {
+        e.preventDefault();
+        $('#contact_form button[type="submit"]').attr("disabled", true);
+        $.ajax({
+            url: "/submit-contact",
+            method: "post",
+            data: {
+                type: "contact",
+                name: $('#contact_name').val(),
+                email: $('#contact_email').val(),
+                address: $('#contact_address').val(),
+                message: $('#contact_message').val(),
+            },
+            success: function (res) {
+                if (res.status === 'success') customAlert(res.message, true);
+                else customAlert(res.message);
+                $('#contact_form button[type="submit"]').attr("disabled", false);
+            }
+        })
+    })
+</script>
+</body>
+</html>

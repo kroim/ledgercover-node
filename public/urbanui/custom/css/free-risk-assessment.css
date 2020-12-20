@@ -1,0 +1,118 @@
+.nav-pills .nav-item {
+    margin-right: 0;
+}
+.nav-pills.nav-pills-custom .nav-item {
+    width: 25%;
+}
+.nav-pills.nav-pills-custom .nav-link {
+    border-radius: 5px;
+}
+.nav-pills .nav-link {
+    border: none;
+    text-align: center;
+}
+
+/* Style the tab */
+.wonder-tab {
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+/* Style the buttons inside the tab */
+.wonder-tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+/* Style the tab content */
+.wonder-tabcontent {
+    display: none;
+    padding: 90px 12px 6px 12px;
+    border-top: none;
+}
+
+.custom-moving-tag {
+    position: absolute;
+    padding: 18px 12px;
+    width: 25%;
+    font-size: 17px;
+    transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+    background: red;
+    text-align: center;
+    color: white;
+    box-sizing: content-box;
+    top: -3px;
+    border-radius: 5px;
+    font-weight: 600;
+    /*display: none;*/
+}
+.custom-moving-tag[data-status="0"] {
+    left: -1.5%;
+}
+.custom-moving-tag[data-status="1"] {
+    left: 23.5%;
+}
+.custom-moving-tag[data-status="2"] {
+    left: 47.5%;
+}
+.custom-moving-tag[data-status="3"] {
+    left: 73.5%;
+}
+.custom-risk-icon {
+    text-align: center;
+}
+.custom-risk-icon i {
+    display: inline-block;
+    font-size: 90px;
+    width: 115px;
+    height: 115px;
+    border-radius: 500px;
+    border: #999999 2px solid;
+    color: #999999;
+    cursor: pointer;
+}
+.custom-risk-icon i:hover {
+    border-color: red;
+    color: red;
+}
+.custom-risk-icon i.active {
+    border-color: red;
+    color: red;
+}
+.custom-risk-icon label {
+    display: block;
+    padding-top: 20px;
+}
+.risk-footer {
+    padding: 5% 2%;
+}
+.risk-footer button.next {
+    background: red;
+    color: white;
+    float: right;
+}
+.risk-footer button.previous {
+    background: #999999;
+    color: white;
+    float: left;
+}
+.risk-footer button.next:hover {
+    box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);;
+}
+.risk-footer button.previous:hover {
+    box-shadow: 0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2);
+}
+
+@media (max-width: 768px) {
+    .wonder-tab button {
+        width: 100%;
+    }
+}

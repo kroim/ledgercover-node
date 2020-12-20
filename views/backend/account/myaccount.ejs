@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../partials/header-top.ejs') %>
+
+        <!-- partial -->
+        <div class="main-panel">
+
+            <%- include('../partials/header.ejs') %>
+
+            <div class="content-wrapper container-wrapper-width">
+
+                <%- include('../partials/sidebar.ejs') %>
+
+                <div class="content-area">
+                    <div class="content-area-inner">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="profile-img-div">
+                                            <img src="<%= session.user.avatar %>">
+                                            <h4 class="card-title"><%= session.user.name %></h4>
+                                            <p class="card-description"><code><%= session.user.email %></code></p>
+                                        </div>
+                                        <div class="template-demo">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="pl-0">User Name</td>
+                                                    <td class="pr-0 text-right">
+                                                        <div class="badge badge-primary"><%= session.user.name %></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pl-0">User Email</td>
+                                                    <td class="pr-0 text-right">
+                                                        <div class="badge badge-primary"><%= session.user.email %></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pl-0">User Industry</td>
+                                                    <td class="pr-0 text-right">
+                                                        <div class="badge badge-info"><%= session.user.industry %></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pl-0">User Phone</td>
+                                                    <td class="pr-0 text-right">
+                                                        <div class="badge badge-danger"><%= session.user.phone %></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pl-0">Date</td>
+                                                    <td class="pr-0 text-right">
+                                                        <div class="badge badge-success"><%= session.user.created_at.toLocaleString() %></div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="padding: 10% 2% 5% 2%;">
+                                        <h4 class="card-title">Change Password</h4>
+                                        <div class="template-demo">
+                                            <form action="" id="change_password_form">
+                                                <div class="form-group">
+                                                    <label for="current_password">Current Password</label>
+                                                    <input type="email" class="form-control" id="current_password" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="new_password">Current Password</label>
+                                                    <input type="email" class="form-control" id="new_password" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="confirm_password">Current Password</label>
+                                                    <input type="email" class="form-control" id="confirm_password" required>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-danger btn-lg">Change password</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<%- include('../partials/foot.ejs') %>
+<script>
+    $('#change_password_form').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/user/change-password',
+            method: 'pst',
+            data: {
+                current_password: $('#current_password').val(),
+                new_password: $('#new_password').val(),
+                confirm_password: $('#confirm_password').val(),
+            },
+            success: function (res) {
+                if (res.status === 'success') customAlert(res.message, true);
+                else customAlert(res.message);
+            }
+        })
+    })
+</script>
+</body>
+</html>

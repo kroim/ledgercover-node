@@ -1,0 +1,46 @@
+.home-content1 {
+    height: calc(65vh);
+    padding-top: 5%;
+}
+.home-content-2 {
+    height: 100%;
+    background-image: url("/urbanui/images/home3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 7% 1%;
+}
+.home-text1 {
+    font-weight: 700; font-size: 3rem; margin: 8px 0 0;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    color: black;
+}
+.home-text2 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 20px 0 0;
+    color: black;
+}
+.subscription-content {
+    padding: 5% 20% 0;
+}
+#register-form {
+    padding: 5%;
+    background: white;
+}
+
+
+@media (max-width: 1199px) {
+    .home-text1 {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 991px) {
+    .home-text1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 768px) {
+    .home-content-2 {
+        background-size: cover;
+    }
+}

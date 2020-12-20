@@ -1,0 +1,157 @@
+.home-content11 {
+    height: calc(55vh);
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.home-content12 {
+    height: 100%;
+    background-image: url("/urbanui/images/home3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 7% 1%;
+}
+.home-text11 {
+    font-weight: 700; font-size: 3rem; margin: 8px 0 0;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    color: black;
+}
+.home-text12 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 20px 0 0;
+    color: black;
+}
+
+.home-content1 {
+    min-height: 600px;
+    background-image: url(/urbanui/images/58989734-0.jpeg);
+    /*background-image: url(/urbanui/images/home2.png);*/
+    background-position: 100% 80%;
+    margin-top: 0;
+    margin-bottom: 0;
+    object-fit: cover;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+}
+.home-text1 {
+    font-weight: 700; font-size: 4rem;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    color: white;
+}
+.home-text2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+}
+.home-content-2 {
+    padding-top: 5%;
+}
+.u-svg-link {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+.u-svg-content {
+    width: 0;
+    height: 0;
+}
+.home-svg-1 {
+    padding-right: 20%;
+    padding-top: 10%;
+}
+.home-svg-2 {
+    background: #478ac9;
+    border-radius: 38px;
+    width: 75px;
+    height: 75px;
+    padding: 16px;
+}
+.home-svg-3 {
+    background: #db545a;
+    border-radius: 38px;
+    width: 75px;
+    height: 75px;
+    padding: 16px;
+}
+.home-svg-4 {
+    background: #2cccc4;
+    border-radius: 38px;
+    width: 75px;
+    height: 75px;
+    padding: 16px;
+}
+.home-svg-5 {
+    background: #ffffff;
+    border-radius: 38px;
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+    border: #478ac9 2px solid;
+}
+.home-svg-6 {
+    background: #f1c50e;
+    border-radius: 38px;
+    width: 75px;
+    height: 75px;
+    padding: 16px;
+}
+.custom-box-left {
+    padding-top: 100px;
+}
+.custom-box-left .card {
+    margin-bottom: 20px;
+    padding: 10% 0;
+}
+.custom-box-right {
+    padding-top: 20px;
+}
+.custom-box-right .card {
+    margin-bottom: 20px;
+    padding: 10% 0;
+}
+.custom-card-title {
+    font-family: Oswald, sans-serif !important;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: black;
+    font-weight: 700;
+    padding: 10% 0;
+}
+.custom-card-title1 {
+    font-family: Oswald, sans-serif !important;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    color: black;
+    font-weight: 700;
+    padding: 5% 0;
+}
+.custom-gray-board {
+    position: absolute;
+    height: calc(40vh);
+    background: #d9d9d9;
+    width: 100%;
+    top: 25%;
+}
+
+@media (max-width: 1199px) {
+    .home-text1 {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 991px) {
+    .home-text1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 768px) {
+    .home-content-2 {
+        background-size: cover;
+    }
+    .custom-gray-board {
+        display: none;
+    }
+}

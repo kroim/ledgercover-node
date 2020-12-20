@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/urbanui/custom/css/z_home.css">
+<body>
+<div class="container-scroller">
+    <%- include('../partials/header') %>
+    <%- include('../partials/sidebar') %>
+
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="container">
+                    <div class="subscription-content">
+                        <form id="register-form">
+                            <div class="form-group">
+                                <h3 class="text-center">
+                                    <span style="padding: 2% 3%; background: red; color: white;">WE'RE LAUNCHING SOON</span>
+                                </h3>
+                            </div>
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input class="form-control" type="text" id="register_name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input class="form-control" type="email" id="register_email" required/>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" id="register_password" required/>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-danger btn-lg">STAY IN TOUCH</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="home-content1">
+                        <div class="home-content-2">
+                            <div class="row">
+                                <div class="col-md-7 mb-3">
+                                    <div style="background: white; padding: 1%">
+                                        <div class="home-text1">Cyber Insurance for Your Business</div>
+                                        <div class="home-text2">Build your online presence safely</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mb-3">
+                                    <div style="padding-top: 30%; padding-right: 3%; text-align: right;">
+                                        <a href="javascript:" class="btn btn-danger btn-lg">GET A QUOTE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('../partials/footer') %>
+        </div>
+    </div>
+
+</div>
+<!-- container-scroller -->
+
+<%- include('../partials/foot') %>
+
+</body>
+</html>

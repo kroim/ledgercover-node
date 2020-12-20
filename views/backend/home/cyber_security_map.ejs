@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+
+        <%- include('../partials/header-top.ejs') %>
+
+        <!-- partial -->
+        <div class="main-panel">
+
+            <%- include('../partials/header.ejs') %>
+
+            <div class="content-wrapper container-wrapper-width">
+
+                <%- include('../partials/sidebar.ejs') %>
+
+                <div class="content-area">
+                    <div class="content-area-inner">
+                        <div class="card">
+                            <div class="card-body" style="text-align: center; background: black;">
+                                <!-- Insert this tag where you want the widget to render -->
+                                <iframe width="754" height="776" src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<%- include('../partials/foot.ejs') %>
+
+</body>
+</html>

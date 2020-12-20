@@ -1,0 +1,421 @@
+
+<div class="horizontal-menu">
+    <% if (session.login == 1) { %>
+        <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+            <div class="container-fluid">
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+                    <ul class="navbar-nav navbar-nav-left">
+                        <li class="nav-item ml-0 mr-lg-4">
+                            <a href="#" class="nav-link horizontal-nav-left-menu profile-settings-open"><i class="mdi mdi-format-list-bulleted"></i></a>
+                        </li>
+                        <li class="nav-item ml-0 logo-div">
+                            <a class="navbar-brand brand-logo" href="/">
+                                <img class="logo-img" src="/urbanui/images/logo.png" style="height: 50px;">
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#"
+                               data-toggle="dropdown">
+                                <i class="mdi mdi-bell mx-0"></i>
+                                <!--                            <span class="count bg-success">0</span>-->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-success">
+                                            <i class="mdi mdi-information mx-0"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                                        <p class="font-weight-light small-text mb-0 text-muted">
+                                            Just now
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-warning">
+                                            <i class="mdi mdi-settings mx-0"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <h6 class="preview-subject font-weight-normal">Settings</h6>
+                                        <p class="font-weight-light small-text mb-0 text-muted">
+                                            Private message
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-info">
+                                            <i class="mdi mdi-account-box mx-0"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                                        <p class="font-weight-light small-text mb-0 text-muted">
+                                            2 days ago
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#"
+                               data-toggle="dropdown">
+                                <i class="mdi mdi-email mx-0"></i>
+                                <!--                            <span class="count bg-primary">4</span>-->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="/urbanui/resources/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            The meeting is cancelled
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="/urbanui/resources/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            New product launch
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="/urbanui/resources/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            Upcoming board meeting
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link count-indicator "><i class="mdi mdi-message-reply-text"></i></a>
+                        </li>
+                        <li class="nav-item nav-search d-none d-lg-block">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                      <span class="input-group-text" id="search">
+                        <i class="mdi mdi-magnify"></i>
+                      </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="search">
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown  d-sm-flex d-none">
+                            <button type="button" class="btn btn-inverse-primary btn-sm">Product</button>
+                        </li>
+                        <li class="nav-item dropdown d-sm-flex d-none">
+                            <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm" id="nreportDropdown" href="#" data-toggle="dropdown">
+                                Reports
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="nreportDropdown">
+                                <p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
+                                <a class="dropdown-item">
+                                    <i class="mdi mdi-file-pdf text-primary"></i>
+                                    Pdf
+                                </a>
+                                <a class="dropdown-item">
+                                    <i class="mdi mdi-file-excel text-primary"></i>
+                                    Excel
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown d-sm-flex d-none">
+                            <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
+                        </li>
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                                <span class="nav-profile-name">My Account</span>
+                                <span class="online-status"></span>
+                                <img src="/urbanui/resources/images/faces/face28.png" alt="profile"/>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="javascript:">
+                                    <i class="mdi mdi-settings text-primary"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="mdi mdi-logout text-primary"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    <% } else { %>
+        <nav class="navbar top-navbar col-lg-12 col-12 p-0 unknown-header">
+            <div class="container-fluid">
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+                    <ul class="navbar-nav navbar-nav-left">
+                        <li class="nav-item ml-0 mr-lg-5">
+                            <div class="logo-div" style="padding: 0 1%;">
+                                <a href="/">
+                                    <img class="logo-img" src="/urbanui/images/logo.png" style="height: 50px;">
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    <% } %>
+    <nav class="bottom-navbar">
+        <% if (session.login != 1) { %>
+            <div class="logo-div mr-2 unknown-header-logo" style="padding: 0 1%;">
+                <a href="/">
+                    <img class="logo-img" src="/urbanui/images/logo.png" style="height: 50px;">
+                </a>
+            </div>
+        <% } %>
+        <ul class="nav page-navigation">
+            <li class="nav-item <%= (side == 'home') ? 'active' : '' %>">
+                <a class="nav-link" href="/">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">HOME</span>
+                </a>
+            </li>
+
+            <li class="nav-item <%= (side == 'app') ? 'active' : '' %>">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-circle-edit-outline menu-icon"></i>
+                    <span class="menu-title">APP</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item <%= (sub_side == 'download') ? 'active' : '' %>"><a class="nav-link" href="/app-download">DOWNLOAD</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/free-risk-assessment">
+                    <i class="mdi mdi-finance menu-icon"></i>
+                    <span class="menu-title">RISK ASSESSMENT</span>
+                </a>
+            </li>
+
+            <li class="nav-item <%= (side == 'risk-management') ? 'active' : '' %>">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-codepen menu-icon"></i>
+                    <span class="menu-title">RISK MANAGEMENT</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item <%= (sub_side == 'security') ? 'active' : '' %>">
+                            <a class="nav-link" href="/risk-management/security">CYBERSECURITY INSURANCE</a></li>
+                        <li class="nav-item <%= (sub_side == 'cyber') ? 'active' : '' %>">
+                            <a class="nav-link" href="/risk-management/cyber">CYBER INSURANCE</a></li>
+                        <li class="nav-item <%= (sub_side == 'process') ? 'active' : '' %>">
+                            <a class="nav-link" href="/risk-management/process">THE PROCESS</a></li>
+<!--                        <li class="nav-item <%= (sub_side == 'claim') ? 'active' : '' %>">-->
+<!--                            <a class="nav-link" href="javascript:">CLAIMS</a></li>-->
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item <%= (side == 'resources') ? 'active' : '' %>">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                    <span class="menu-title">RESOURCES</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+<!--                        <li class="nav-item <%= (sub_side == 'studies') ? 'active' : '' %>"><a class="nav-link" href="javascript:">CASE STUDIES</a></li>-->
+                        <li class="nav-item <%= (sub_side == 'attack-types') ? 'active' : '' %>"><a class="nav-link" href="/resources/attack-types">CYBER ATTACK TYPES</a></li>
+<!--                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBER ATTACK MAP</a></li>-->
+<!--                        <li class="nav-item"><a class="nav-link" href="javascript:">GLOSSARY</a></li>-->
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item <%= (side == 'about') ? 'active' : '' %>">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-account-box menu-icon"></i>
+                    <span class="menu-title">ABOUT US</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item <%= (sub_side == 'team') ? 'active' : '' %>"><a class="nav-link" href="/about/team">MEET THE TEAM</a></li>
+                        <li class="nav-item <%= (sub_side == 'contact') ? 'active' : '' %>"><a class="nav-link" href="/about/contact-us">CONTACT US</a></li>
+<!--                        <li class="nav-item"><a class="nav-link" href="javascript:">PARTNER WITH US</a></li>-->
+                        <li class="nav-item <%= (sub_side == 'summits') ? 'active' : '' %>"><a class="nav-link" href="/about/summits">CYBERSECURITY SUMMITS</a></li>
+<!--                        <li class="nav-item"><a class="nav-link" href="javascript:">FAQS</a></li>-->
+                    </ul>
+                </div>
+            </li>
+
+            <% if (session.login != 1) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:" data-toggle="modal" data-target="#login_modal">
+                        <i class="mdi mdi-access-point-network menu-icon"></i>
+                        <span class="menu-title">LOGIN</span>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
+<% if (session.login != 1) { %>
+    <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form id="login_form">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" class="form-control" id="login_email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="login_password" required/>
+                        </div>
+                        <div class="text-right">
+                            <a href="javascript:" onclick="goToRegister()">I don't have an account.</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="register_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Register</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form id="register_form">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" id="register_name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" class="form-control" id="register_email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="register_password" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" id="register_phone" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" class="form-control" id="register_company" required/>
+                        </div>
+                        <div class="text-right">
+                            <a href="javascript:" onclick="goToLogin()">I have an account already.</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    function goToRegister() {
+        $('#login_modal').modal('toggle');
+        $('#register_modal').modal('show');
+    }
+    function goToLogin() {
+        $('#register_modal').modal('toggle');
+        $('#login_modal').modal('show');
+    }
+    $('#login_form').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/post-login',
+            method: 'post',
+            data: {
+                email: $('#login_email').val(),
+                password: $('#login_password').val()
+            },
+            success: function (res) {
+                if (res.status === 'success') {
+                    customAlert(res.message, true);
+                    setTimeout(function () {
+                        location.reload()
+                    }, 2000);
+                }
+            }
+        })
+    });
+    $('#register_form').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/post-register',
+            method: 'post',
+            data: {
+                name: $('#register_name').val(),
+                email: $('#register_email').val(),
+                password: $('#register_password').val(),
+                phone: $('#register_phone').val(),
+                company: $('#register_company').val(),
+            },
+            success: function (res) {
+                if (res.status === 'success') {
+                    customAlert(res.message, true);
+                    $('#register_modal').modal('toggle');
+                    $('#login_modal').modal('show');
+                }
+                else customAlert(res.message);
+            }
+        })
+    })
+</script>
+<% } %>

@@ -1,0 +1,31 @@
+<!-- partial:partials/_top-header.html -->
+<div class="top-header">
+    <div class="top-header-inner container-wrapper-width">
+        <p class="help-text">Help : <a href="tel:+0123456789">+012 3456 789</a></p>
+        <ul class="nav">
+            <li class="nav-item dropdown language-dropdown">
+                <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-web"></i><%= (i18n.locale == 'DE')?'German':((i18n.locale == 'FR')?'French':'English') %> </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="languageDropdown">
+                    <a class="dropdown-item" href="/lang/en">English</a>
+                    <a class="dropdown-item" href="/lang/de">German</a>
+                    <a class="dropdown-item" href="/lang/fr">French</a>
+                </div>
+            </li>
+            <% if (session.login ) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/my-account">My Account</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Create Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</div>
+<!-- partial -->
+

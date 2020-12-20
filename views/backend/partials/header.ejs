@@ -1,0 +1,62 @@
+<style>
+    .brand-logo img, .brand-logo-mini img {
+        max-height: 50px;
+    }
+</style>
+<div class="hero-banner">
+    <!-- partial:partials/_navbar.html -->
+    <div class="navbar">
+        <div class="container-wrapper-width">
+            <div class="row w-100">
+                <div class="col-2 col-md-4 navbar-col order-md-1">
+                    <a href="/" class="brand-logo" style="text-decoration: none; color: white">
+                        <img src="/backend/logo.png" alt="logo"> <span style="font-weight: bold;">LEDGERCOVER</span>
+                    </a>
+                    <a href="/" class="brand-logo-mini">
+                        <img src="/backend/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="d-none d-md-block col-md-4 navbar-col order-md-0">
+                    <ul class="nav">
+                    </ul>
+                </div>
+                <div class="col-10 col-md-4 navbar-col order-md-3">
+                    <ul class="nav navbar-nav-right ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="mdi mdi-magnify"></i>
+                            </a>
+                        </li>
+                        <% if (session.login ) { %>
+                            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+                                <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-xs rounded-circle" src="<%= session.user.avatar %>" alt="Profile image">
+                                    <span class="profile-text">Allen Moreno</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                                    <div class="dropdown-header text-center">
+                                        <img class="img-md rounded-circle" src="<%= session.user.avatar %>" alt="Profile image">
+                                        <p class="mb-1 mt-3 font-weight-semibold"><%= session.user.name %></p>
+                                        <p class="font-weight-light text-muted mb-0"><%= session.user.email %></p>
+                                    </div>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary"></i> Messages</a>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary"></i> Activity</a>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary"></i> FAQ</a>
+                                    <a class="dropdown-item" href="/logout"><i class="dropdown-item-icon mdi mdi-power text-primary"></i>Sign Out</a>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-md-none align-self-center" type="button">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+<!--                    <button class="chat-toggler d-md-none align-self-center" type="button">-->
+<!--                        <span class="mdi mdi-dots-vertical"></span>-->
+<!--                    </button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+</div>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/urbanui/custom/css/free-risk-assessment.css">
+<style>
+
+</style>
+<body>
+<div class="container-scroller">
+    <%- include('../partials/header') %>
+    <%- include('../partials/sidebar') %>
+
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="container">
+                    <div id="risk_assessment_form" style="padding: 2% 0;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">GET A QUOTE</h4>
+
+                                <div class="wonder-tab">
+                                    <button class="wonder-tablinks active" onclick="customTabClick(event, 'risk-account')"
+                                            data-name="risk-account" data-type="0">ACCOUNT
+                                    </button>
+                                    <button class="wonder-tablinks" onclick="customTabClick(event, 'risk-company')"
+                                            data-name="risk-company" data-type="1">SIZE OF COMPANY
+                                    </button>
+                                    <button class="wonder-tablinks" onclick="customTabClick(event, 'risk-result')"
+                                            data-name="risk-result" data-type="2">RISK RESULT
+                                    </button>
+                                    <button class="wonder-tablinks" onclick="customTabClick(event, 'risk-submit')"
+                                            data-name="risk-submit" data-type="3">SUBMIT
+                                    </button>
+                                    <div class="custom-moving-tag"></div>
+                                </div>
+
+                                <div id="risk-account" class="wonder-tabcontent" style="display: block;">
+                                    <form id="questionnaire-form" style="width: 100%;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group label-floating">
+                                                    <label>Your Name</label>
+                                                    <input type="text" id="risk_name" class="form-control" required>
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label>Your Email</label>
+                                                    <input type="email" id="risk_email" class="form-control" required>
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label>Your Password</label>
+                                                    <input type="password" id="risk_password" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group label-floating">
+                                                    <label>Domain</label>
+                                                    <input name="domain" type="text" id="risk_domain" class="form-control" required>
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label>Company Name</label>
+                                                    <input name="industry" type="text" id="risk_industry" class="form-control" required>
+                                                </div>
+                                                <div class="form-group label-floating">
+                                                    <label>Phone Number</label>
+                                                    <input name="phone" type="text" id="risk_phone" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" style="display: none"></button>
+                                    </form>
+                                    <div class="risk-footer">
+                                        <button type="button" class="btn btn-danger btn-lg next" onclick="freeRiskNext('risk-company')">Next <i
+                                                    class="mdi mdi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="risk-company" class="wonder-tabcontent">
+                                    <h3 class="text-center">How many employees would you like to cover?</h3>
+                                    <div style="padding-top: 5%;">
+                                        <input type="hidden" id="risk-employees">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="custom-risk-icon" data-toggle="tooltip" data-placement="top" title="Sed posuere consectetur est at lobortis.">
+                                                    <i class="mdi mdi-hops" onclick="clickEmployeeIcon(this, 1)"></i>
+                                                    <label>1 - 30</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="custom-risk-icon" data-toggle="tooltip" data-placement="top" title="Sed posuere consectetur est at lobortis.">
+                                                    <i class="mdi mdi-home" onclick="clickEmployeeIcon(this, 2)"></i>
+                                                    <label>30 - 50</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="custom-risk-icon" data-toggle="tooltip" data-placement="top" title="Sed posuere consectetur est at lobortis.">
+                                                    <i class="mdi mdi-apps" onclick="clickEmployeeIcon(this, 3)"></i>
+                                                    <label>+ 50</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="risk-footer">
+                                        <button class="btn btn-secondary btn-lg previous" type="button" onclick="freeRiskPrevious('risk-account')"><i
+                                                    class="mdi mdi-arrow-left"></i> Previous
+                                        </button>
+                                        <button class="btn btn-danger btn-lg next" type="button" onclick="freeRiskNext('risk-result')">Next <i
+                                                    class="mdi mdi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="risk-result" class="wonder-tabcontent">
+                                    <input type="hidden" id="risk-result-flag" value="0"/>
+                                    <h4 class="text-center"> Risk Assessment Result</h4>
+                                    <div class="dot-opacity-loader">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div style="padding: 0 10%;" id="riskTabContent">
+
+                                    </div>
+                                    <div class="risk-footer">
+                                        <button class="btn btn-secondary btn-lg previous" type="button" onclick="freeRiskPrevious('risk-company')"><i
+                                                    class="mdi mdi-arrow-left"></i> Previous
+                                        </button>
+                                        <button class="btn btn-danger btn-lg next" type="button" onclick="freeRiskNext('risk-submit')">Next <i
+                                                    class="mdi mdi-arrow-right"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="risk-submit" class="wonder-tabcontent">
+                                    <h4 class="text-center">Letter of Intent</h4>
+                                    <div style="padding: 0 10%;">
+                                        <p class="risk-description">From: <span id="span-risk-name"></span></p>
+                                        <p class="risk-description">From: <span id="span-risk-domain"></span></p>
+                                        <p class="risk-description">Dear LedgerCover Team, </p>
+                                        <p class="risk-description">I would like to protect my assets and be an early customer to the Cyber Insurance product at a
+                                            preferential rate when
+                                            the product is available Fall <%= new Date().getFullYear() %>.</p>
+                                        <p class="risk-description">Thank you</p>
+                                        <p class="risk-description">Please keep me informed by email</p>
+                                        <p class="risk-description">Date: <span><%= new Date().toISOString().substr(0, 10) %></span></p>
+                                        <p class="risk-description">Signature: <span id="span-risk-signature"></span></p>
+                                    </div>
+                                    <div class="risk-footer">
+                                        <button class="btn btn-secondary btn-lg previous" type="button" onclick="freeRiskPrevious('risk-result')"><i
+                                                    class="mdi mdi-arrow-left"></i> Previous
+                                        </button>
+                                        <button class="btn btn-danger btn-lg next" type="button" name="finish" onclick="freeRiskNext('risk-final')">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="subscription_form" style="padding: 0 10%; display: inherit;">
+                    <input type="hidden" id="subscription_form_plan" value="0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h3 class="mb-3">Your Insurance Premium offers</h3>
+<!--                                <p class="w-75 mx-auto mb-5">Choose a plan that suits you the best. If you are not fully satisfied, we offer 30-day money-back guarantee no questions asked!!</p>-->
+                                <div class="row pricing-table">
+                                    <div class="col-md-6 col-xl-3 grid-margin stretch-card pricing-card">
+                                        <div class="card border pricing-card-body">
+                                            <div class="text-center pricing-card-head">
+                                                <h3>BASIC PLAN</h3>
+                                                <h1 class="font-weight-normal mb-4" style="display: inline-block">$55</h1>
+                                                <sp>/month</sp>
+                                            </div>
+                                            <ul class="list-unstyled plan-features">
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $25,000 Data Loss</li>
+                                                <li><i class="mdi mdi-close"></i> Privacy Liability</li>
+                                                <li><i class="mdi mdi-close"></i> Network Liability</li>
+                                                <li><i class="mdi mdi-close"></i> Cyber Extortion</li>
+                                                <li><i class="mdi mdi-close"></i> Notification Cost</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-outline-primary btn-block" style="background: #fc42a5; color: white; border: none;"
+                                                    onclick="chooseSubscriptionPlan(1)">CHOOSE</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xl-3 grid-margin stretch-card pricing-card">
+                                        <div class="card border pricing-card-body">
+                                            <div class="text-center pricing-card-head">
+                                                <h3>OPTIMAL PLAN</h3>
+                                                <h1 class="font-weight-normal mb-4" style="display: inline-block">$65</h1>
+                                                <sp>/month</sp>
+                                            </div>
+                                            <ul class="list-unstyled plan-features">
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $50,000 Data Loss</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $25,000 Privacy Liability</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $25,000 Network Liability</li>
+                                                <li><i class="mdi mdi-close"></i> Cyber Extortion</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $10,000 Notification Cost</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-outline-primary btn-block" style="background: #fc42a5; color: white; border: none;"
+                                                    onclick="chooseSubscriptionPlan(2)">CHOOSE</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xl-3 grid-margin stretch-card pricing-card">
+                                        <div class="card border pricing-card-body">
+                                            <div class="text-center pricing-card-head">
+                                                <h3>PREMIUM PLAN</h3>
+                                                <h1 class="font-weight-normal mb-4" style="display: inline-block">$75</h1>
+                                                <sp>/month</sp>
+                                            </div>
+                                            <ul class="list-unstyled plan-features">
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $75,000 Data Loss</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $50,000 Privacy Liability</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $50,000 Network Liability</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $25,000 Cyber Extortion</li>
+                                                <li style="color: #202428; font-weight: bold;"><i class="mdi mdi-check" style="color: #fc42a5"></i> $10,000 Notification Cost</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-outline-primary btn-block" style="background: #fc42a5; color: white; border: none;"
+                                                    onclick="chooseSubscriptionPlan(3)">CHOOSE</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xl-3 grid-margin stretch-card pricing-card">
+                                        <div class="card border pricing-card-body">
+                                            <div class="text-center pricing-card-head">
+                                                <h3>CUSTOM PLAN</h3>
+                                                <h1 class="font-weight-normal mb-4" style="display: inline-block">$99</h1>
+                                                <sp>/month</sp>
+                                            </div>
+                                            <ul class="list-unstyled plan-features">
+                                                <li style="color: #202428;"><i class="mdi mdi-check" style="color: #fc42a5"></i> <span style="font-weight: bold;">CUSTOM</span> Data Loss</li>
+                                                <li style="color: #202428;"><i class="mdi mdi-check" style="color: #fc42a5"></i> <span style="font-weight: bold;">CUSTOM</span> Privacy Liability</li>
+                                                <li style="color: #202428;"><i class="mdi mdi-check" style="color: #fc42a5"></i> <span style="font-weight: bold;">CUSTOM</span> Network Liability</li>
+                                                <li style="color: #202428;"><i class="mdi mdi-check" style="color: #fc42a5"></i> <span style="font-weight: bold;">CUSTOM</span> Cyber Extortion</li>
+                                                <li style="color: #202428;"><i class="mdi mdi-check" style="color: #fc42a5"></i> <span style="font-weight: bold;">CUSTOM</span> Notification Cost</li>
+                                            </ul>
+                                            <button type="button" class="btn btn-outline-primary btn-block" style="background: #fc42a5; color: white; border: none;"
+                                                    onclick="chooseSubscriptionPlan(4)">CHOOSE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="mb-1 mt-2">Select Add-ons</h3>
+                                <h6 class="mb-3">Monthly Premiums</h6>
+                                <div class="row">
+<!--                                    <div class="col-sm-3">-->
+<!--                                        <h4 class="mb-3">Free</h4>-->
+<!--                                        <div class="card mb-2" style="padding: 0;">-->
+<!--                                            <div class="card-body" style="padding: 0 10%; display: flex">-->
+<!--                                                <div class="form-check form-check-danger" style=" width: 100%;">-->
+<!--                                                    <label class="form-check-label" style="line-height: 1.2;">-->
+<!--                                                        <input type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="">-->
+<!--                                                        24/7 Surveillance System-->
+<!--                                                        <i class="input-helper"></i></label>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="card mb-2" style="padding: 0;">-->
+<!--                                            <div class="card-body" style="padding: 0 10%; display: flex">-->
+<!--                                                <div class="form-check form-check-danger" style=" width: 100%;">-->
+<!--                                                    <label class="form-check-label" style="line-height: 1.2;">-->
+<!--                                                        <input type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="">-->
+<!--                                                        Knowledge Center Subscription-->
+<!--                                                        <i class="input-helper"></i></label>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="col-sm-3">
+
+                                        <div class="card mb-2" style="padding: 0;">
+                                            <div class="card-body" style="padding: 0 10%; display: flex">
+                                                <div class="form-check form-check-danger" style=" width: 70%;">
+                                                    <label class="form-check-label" style="line-height: 1.2;">
+                                                        <input type="checkbox" class="form-check-input" name="premium1" id="premium1" value="">
+                                                        Cloud Backup
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                                <div style="width: 30%; padding-top: 3%;">
+                                                    <label style="font-weight: bold;float: right; ">$15</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="padding: 0;">
+                                            <div class="card-body" style="padding: 0 10%; display: flex">
+                                                <div class="form-check form-check-danger" style=" width: 70%;">
+                                                    <label class="form-check-label" style="line-height: 1.2;">
+                                                        <input type="checkbox" class="form-check-input" name="premium2" id="premium2" value="">
+                                                        Data Risk Intelligence
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                                <div style="width: 30%; padding-top: 3%;">
+                                                    <label style="font-weight: bold; float: right;">$45</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="padding: 0;">
+                                            <div class="card-body" style="padding: 0 10%; display: flex">
+                                                <div class="form-check form-check-danger" style=" width: 70%;">
+                                                    <label class="form-check-label" style="line-height: 1.2;">
+                                                        <input type="checkbox" class="form-check-input" name="premium3" id="premium3" value="">
+                                                        ID Verification
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                                <div style="width: 30%; padding-top: 3%;">
+                                                    <label style="font-weight: bold; float: right;">$15</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                        <div class="card mb-2" style="padding: 0;">
+                                            <div class="card-body" style="padding: 0 10%; display: flex">
+                                                <div class="form-check form-check-danger" style=" width: 70%;">
+                                                    <label class="form-check-label" style="line-height: 1.2;">
+                                                        <input type="checkbox" class="form-check-input" name="premium4" id="premium4" value="">
+                                                        Cyber Attack Response Tools
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                                <div style="width: 30%; padding-top: 3%;">
+                                                    <label style="font-weight: bold; float: right;">$15</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-2" style="padding: 0;">
+                                            <div class="card-body" style="padding: 0 10%; display: flex">
+                                                <div class="form-check form-check-danger" style=" width: 70%;">
+                                                    <label class="form-check-label" style="line-height: 1.2;">
+                                                        <input type="checkbox" class="form-check-input" name="premium5" id="premium5" value="">
+                                                        24/7 Risk Monitoring
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                                <div style="width: 30%; padding-top: 3%;">
+                                                    <label style="font-weight: bold; float: right;">$15</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="text-right">
+                                <button type="button" class="btn btn-danger btn-lg" style="background: #fc42a5"
+                                        onclick="openCheckout()">CHECKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('../partials/footer') %>
+        </div>
+    </div>
+
+</div>
+<!-- container-scroller -->
+<div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Checkout subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form id="checkout-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input class="form-control" id="card_number" data-inputmask-alias="9999-9999-9999-9999" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Expire</label>
+                                <input class="form-control" id="card_expire" data-inputmask-alias="99/99" placeholder="MM/YY" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>CVC</label>
+                                <input class="form-control" data-inputmask-alias="9999" id="card_cvc" required>
+                            </div>
+                        </div>
+                        <input type="hidden" id="checkout_amount">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Pay Now $<span id="checkout_amount_span"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/foot') %>
+<script src="/urbanui/custom/js/free-risk-assessment.js"></script>
+</body>
+</html>

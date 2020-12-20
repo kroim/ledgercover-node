@@ -1,0 +1,24 @@
+/* alert style */
+.custom-alert {
+    position: fixed;
+    z-index: 999999;
+    bottom: calc(10vh);
+    max-width: calc(70vw);
+    min-width: calc(20vw);
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+.alert-success {
+    color: #e6ecea;
+    background-color: rgba(26, 147, 13, 1);
+    border-color: #28d497;
+}
+.alert-danger {
+    color: #f1e1e0;
+    background-color: #eb2929;
+    border-color: #eb5a51;
+}

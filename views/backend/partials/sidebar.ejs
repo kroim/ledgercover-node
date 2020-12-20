@@ -1,0 +1,105 @@
+<!-- partial:partials/_sidebar.html -->
+<style>
+    .sidebar-menu > .nav > .nav-item > .nav-link .menu-icons {
+        color: #232329;
+        margin-right: 15px;
+        font-size: 20px;
+        width: 25px;
+        padding: 0;
+    }
+</style>
+<div class="sidebar-menu">
+    <nav class="nav">
+        <div class="nav-item">
+            <a href="<%= (session.login == 1)?'/user/my-account':'/login' %>" class="nav-link <%= (typeof side != "undefined" && side == "my-account")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-user-circle-o"></i><span class="menu-title"><%= i18n.__('My account') %></span>
+            </a>
+        </div>
+<!--        <div class="nav-item nav-category">CyberSecurity</div>-->
+        <div class="nav-item">
+            <a href="/free-risk-assessment" class="nav-link <%= (typeof side != "undefined" && side == "free-risk-assessment")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-life-ring"></i><span class="menu-title"><%= i18n.__('Free risk assessment') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="/estimate-my-coverage" class="nav-link <%= (typeof side != "undefined" && side == "estimate-my-coverage")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-bell-o"></i><span class="menu-title"><%= i18n.__('Estimate my coverage') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="/cyber-monitoring" class="nav-link <%= (typeof side != "undefined" && side == "cyber-monitoring")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-building-o" style="padding-right: 10px;"></i><span class="menu-title"><%= i18n.__('Buy cyber monitoring and defense') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="/case-studies" class="nav-link <%= (typeof side != "undefined" && side == "case-studies")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-bookmark-o"></i><span class="menu-title"><%= i18n.__('Case studies') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#resources-dropdown"
+               aria-expanded="<%= (typeof side != "undefined" && side == "about-us")?"true":"false" %>" aria-controls="dashboard-dropdown">
+                <i class="menu-icons fa fa-user-o"></i><span class="menu-title"><%= i18n.__('About us') %></span><i class="menu-arrow"></i>
+            </a>
+            <div class="collapse <%= (typeof side != "undefined" && side == "about-us")?"show":"" %>" id="resources-dropdown">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "ledgercover")?"sub-nav-active":"" %>"
+                           href="/about-us/ledgercover"><%= i18n.__('Ledgercover') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "insurance")?"sub-nav-active":"" %>"
+                           href="/about-us/insurance"><%= i18n.__('Insurance') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "cyber-attack")?"sub-nav-active":"" %>"
+                           href="/about-us/cyber-attack"><%= i18n.__('Cyber attack') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "cyber-insurance")?"sub-nav-active":"" %>"
+                           href="/about-us/cyber-insurance"><%= i18n.__('Cyber insurance') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "blockchain")?"sub-nav-active":"" %>"
+                           href="/about-us/blockchain"><%= i18n.__('Blockchain') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= (typeof subside != "undefined" && subside == "our-partners")?"sub-nav-active":"" %>"
+                           href="/about-us/our-partners"><%= i18n.__('Our partners') %></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="/live-cyber-attack-map" class="nav-link <%= (typeof side != "undefined" && side == "live-map")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-map-marker"></i><span class="menu-title"><%= i18n.__('Live cyberattack map') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="/cyber-security-insurance" class="nav-link <%= (typeof side != "undefined" && side == "cybersecurity-insurance")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-align-center"></i><span class="menu-title"><%= i18n.__('Cybersecurity insurance') %></span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="/contact-us" class="nav-link <%= (typeof side != "undefined" && side == "contact-us")?"nav-active":"" %>">
+                <i class="menu-icons fa fa-globe"></i><span class="menu-title"><%= i18n.__('Contact us') %></span>
+            </a>
+        </div>
+    </nav>
+
+    <% if (session.login ) { %>
+        <div class="account-bar">
+            <div class="bar-actions">
+                <a href="javascript:" class="action-link"><i class="mdi mdi-flask-outline"></i></a>
+                <div class="profile-wrapper">
+                    <img class="img-sm rounded-circle" src="<%= session.user.avatar %>" alt="profile images">
+                    <div class="dot-indicator bg-success"></div>
+                </div>
+                <a href="javascript:" class="action-link"><i class="mdi mdi-bell-outline"></i></a>
+            </div>
+            <button class="btn btn-block btn-primary">Customize</button>
+        </div>
+    <% } %>
+
+</div>
+<!-- partial -->

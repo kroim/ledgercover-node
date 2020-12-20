@@ -1,0 +1,136 @@
+<div class="horizontal-menu">
+    <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container-fluid">
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+                <ul class="navbar-nav navbar-nav-left">
+                    <li class="nav-item ml-0 mr-lg-5">
+                        <a href="#" class="nav-link horizontal-nav-left-menu profile-settings-open"><i class="mdi mdi-format-list-bulleted"></i></a>
+                    </li>
+                </ul>
+
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <nav class="bottom-navbar">
+        <a href="#" class="nav-link profile-settings-open" id="custom_header_bullet_a"><i class="mdi mdi-format-list-bulleted" style="color: #c7c8ca; font-size: 1.5rem;"></i></a>
+
+        <div class="logo-div" style="padding: 0 1%;">
+            <img class="logo-img" src="/urbanui/images/logo.png" style="height: 50px;">
+        </div>
+        <ul class="nav page-navigation">
+            <li class="nav-item <%= (side == 'home') ? 'active' : '' %>">
+                <a class="nav-link" href="/">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">HOMEPAGE</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-circle-edit-outline menu-icon"></i>
+                    <span class="menu-title">PRODUCTS</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item"><a class="nav-link" href="javascript:">LEDGERCOVER APP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">MARKETPLACE</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:">
+                    <i class="mdi mdi-finance menu-icon"></i>
+                    <span class="menu-title">RISK ASSESSMENT</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-codepen menu-icon"></i>
+                    <span class="menu-title">RISK MANAGEMENT</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBERSECURITY INSURANCE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBER INSURANCE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">THE PROCESS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CLAIMS</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                    <span class="menu-title">RESOURCES</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CASE STUDIES</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBER ATTACK TYPES</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBER ATTACK MAP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">GLOSSARY</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-account-box menu-icon"></i>
+                    <span class="menu-title">ABOUT US</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item"><a class="nav-link" href="javascript:">MEET THE TEAM</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CONTACT US</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">PARTNER WITH US</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CYBERSECURITY SUMMITS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">FAQS</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-access-point-network menu-icon"></i>
+                    <span class="menu-title">JOIN US</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="nav-item"><a class="nav-link" href="javascript:">CAREER</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">OUR PARTNERS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">SURVEY</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">BLOG</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:">AFFILIATE</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-item nav-profile dropdown" id="custom_header_profile_div">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                <span class="nav-profile-name">Johnson</span>
+                <span id="custom_header_profile_online"></span>
+                <img src="/urbanui/resources/images/faces/face28.png" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown" id="custom_header_profile_dropdown">
+                <a class="dropdown-item custom-header-dropdown-item">
+                    <i class="mdi mdi-settings text-primary"></i>
+                    Settings
+                </a>
+                <a class="dropdown-item custom-header-dropdown-item">
+                    <i class="mdi mdi-logout text-primary"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

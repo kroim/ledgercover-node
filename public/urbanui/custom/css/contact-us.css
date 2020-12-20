@@ -1,0 +1,12 @@
+.content-wrapper {
+    padding: 0;
+    background-image: url("/urbanui/images/home1.jpg");
+    background-size: cover;
+}
+.contact-details {
+    padding: 7% 20%;
+}
+#contact_form {
+    padding: 5%;
+    background: white;
+}
